@@ -237,6 +237,47 @@ public class FormTest extends BaseTest{
         Assertions.assertEquals(0, driver.findElements(By.id("example-modal-sizes-title-lg")).size());
     }
 
+    // Сценарий - не указано имя
+    @Test
+    public void firstNameValidation() {
+        String lastName = "Minaev";
+        String email = "invalidEmail@mail.ru";
+        String mobile = "9008001122";
+        String dayOfBirth = "12";
+        String monthOfBith = "January";
+        String yearOfBirth = "2000";
+
+        driver.get("https://demoqa.com/automation-practice-form");
+        initAllFields();
+        fillFormWithoutFisrtName(lastName, email, mobile,
+                dayOfBirth, yearOfBirth, monthOfBith);
+        genderMale.click();
+        // На форме кнопка Submit не принимает метод Click() :)
+        submit.sendKeys(Keys.ENTER);
+
+        Assertions.assertEquals(0, driver.findElements(By.id("example-modal-sizes-title-lg")).size());
+    }
+
+    // Сценарий - не указана фамилия
+    @Test
+    public void lastNameValidation() {
+        String fisrtName = "Ivan";
+        String email = "invalidEmail@mail.ru";
+        String mobile = "9008001122";
+        String dayOfBirth = "12";
+        String monthOfBith = "January";
+        String yearOfBirth = "2000";
+
+        driver.get("https://demoqa.com/automation-practice-form");
+        initAllFields();
+        fillFormWithoutLastName(fisrtName, email, mobile,
+                dayOfBirth, yearOfBirth, monthOfBith);
+        genderMale.click();
+        // На форме кнопка Submit не принимает метод Click() :)
+        submit.sendKeys(Keys.ENTER);
+
+        Assertions.assertEquals(0, driver.findElements(By.id("example-modal-sizes-title-lg")).size());
+    }
 
     private void initAllFields() {
         firstName = driver.findElement(By.id("firstName"));
@@ -287,6 +328,25 @@ public class FormTest extends BaseTest{
         this.dateOfBirth.click();
         selectDate(dBirth, mBirth, yBirth);
     }
+
+    private void fillFormWithoutFisrtName(String lastName, String email, String mobile,
+                                 String dBirth, String yBirth, String mBirth) {
+        this.lastName.sendKeys(lastName);
+        this.email.sendKeys(email);
+        this.mobile.sendKeys(mobile);
+        this.dateOfBirth.click();
+        selectDate(dBirth, mBirth, yBirth);
+    }
+
+    private void fillFormWithoutLastName(String firstName, String email, String mobile,
+                                          String dBirth, String yBirth, String mBirth) {
+        this.firstName.sendKeys(firstName);
+        this.email.sendKeys(email);
+        this.mobile.sendKeys(mobile);
+        this.dateOfBirth.click();
+        selectDate(dBirth, mBirth, yBirth);
+    }
+
 
     /*
     * Пришлось дописать ручное заполнение датапикера, т.к. не получается отправить в него значение нормальным способом
