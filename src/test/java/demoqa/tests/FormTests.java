@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.File;
 
-public class FormTest extends BaseTest{
+public class FormTests extends BaseTest{
     private final String pictureFilePath = "./src/test/resources/200.png";
 
     // Сценарий - все поля заполнены валидными значениями
