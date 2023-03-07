@@ -18,7 +18,7 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        this.driver = new ChromeDriver(options);
+        this.driver = WebDriverManager.chromedriver().capabilities(options).create();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
