@@ -189,9 +189,6 @@ public class FormTests extends BaseTest{
         practicePage.fillMobile(mobile);
         practicePage.fillDate(dayOfBirth, monthOfBith, yearOfBirth);
         practicePage.fillGender("Male");
-        practicePage.fillHobbieReading();
-        practicePage.fillHobbieMusic();
-        practicePage.fillHobbieSports();
         practicePage.submit();
 
         Assertions.assertFalse(practicePage.modalIsOpen());
@@ -215,9 +212,6 @@ public class FormTests extends BaseTest{
         practicePage.fillMobile(mobile);
         practicePage.fillDate(dayOfBirth, monthOfBith, yearOfBirth);
         practicePage.fillGender("Male");
-        practicePage.fillHobbieReading();
-        practicePage.fillHobbieMusic();
-        practicePage.fillHobbieSports();
         practicePage.submit();
 
         Assertions.assertFalse(practicePage.modalIsOpen());
