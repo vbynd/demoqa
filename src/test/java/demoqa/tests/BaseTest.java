@@ -21,6 +21,7 @@ public class BaseTest {
         options.addArguments("--disable-extensions"); // disabling extensions
         options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
         options.addArguments("--no-sandbox"); // Bypass OS security model
+        options.addArguments("--headless");
         this.driver = WebDriverManager.chromedriver().capabilities(options).create();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
